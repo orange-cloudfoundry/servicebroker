@@ -1,5 +1,4 @@
 {
-  "id": "http://some.site.somewhere/entry-schema#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "schema for mysql service",
   "type": "object",
@@ -14,13 +13,13 @@
       "required": [
         "billing-account"
       ]
-    },
-    "patternProperties": {
-      "^x-servicebroker-((?!request).)+$": {}
-    },
-    "additionalProperties": false,
-    "required": [
-      "x-servicebroker-request"
-    ]
-  }
+    }
+  },
+  "patternProperties": {
+    "^x-servicebroker-((?!request).)+$": {}
+  },
+  "additionalProperties": false,
+  "required": [
+    "x-servicebroker-request"
+  ]
 }
