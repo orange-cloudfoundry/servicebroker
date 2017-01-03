@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "schema for mysql service",
+  "type": "object",
+  "oneOf": [
+    {
+      "properties": {
+        "x-servicebroker-plan-id": {
+          "enum": [
+            "standard-plan-guid"
+          ]
+        },
+        "x-servicebroker-request": {
+          "type": "object",
+          "properties": { },
+          "additionalProperties": false
+        }
+      },
+      "patternProperties": {
+        "^x-servicebroker-((?!request).)+$": {}
+      },
+      "additionalProperties": false,
+      "required": [
+        "x-servicebroker-request",
+        "x-servicebroker-method"
+      ]
+    },
+    {
+      "properties": {
+        "x-servicebroker-plan-id": {
+          "enum": [
+            "premium-plan-guid"
+          ]
+        },
+        "x-servicebroker-request": {
+          "type": "object",
+          "properties": {
+            "backup-config": {
+              "type": "object",
+              "properties": {
+                "eviction-policy": {
+                  "enum": [
+                    "fifo",
+                    "lilo",
+                    "none"
+                  ]
+                },
+                "pgp-key": {
+                  "type": "string"
+                },
+                "destination-blob": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "backup-config"
+          ]
+        },
+        "x-servicebroker-method": {
+          "enum": [
+            "backup",
+            "restore"
+          ]
+        }
+      },
+      "patternProperties": {
+        "^x-servicebroker-((?!request).)+$": {}
+      },
+      "additionalProperties": false,
+      "required": [
+        "x-servicebroker-request",
+        "x-servicebroker-method"
+      ]
+    }
+  ]
+}
