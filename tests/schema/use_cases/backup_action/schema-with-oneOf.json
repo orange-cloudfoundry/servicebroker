@@ -12,7 +12,6 @@
         },
         "x-servicebroker-request": {
           "type": "object",
-          "properties": { },
           "additionalProperties": false
         }
       },
@@ -33,32 +32,7 @@
           ]
         },
         "x-servicebroker-request": {
-          "type": "object",
-          "properties": {
-            "backup-config": {
-              "type": "object",
-              "properties": {
-                "eviction-policy": {
-                  "enum": [
-                    "fifo",
-                    "lilo",
-                    "none"
-                  ]
-                },
-                "pgp-key": {
-                  "type": "string"
-                },
-                "destination-blob": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "backup-config"
-          ]
+          "$ref": "#/definitions/backup-config-x-servicebroker-request"
         },
         "x-servicebroker-method": {
           "enum": [
@@ -76,5 +50,37 @@
         "x-servicebroker-method"
       ]
     }
-  ]
+  ],
+  "definitions": {
+    "backup-x-servicebroker-method": {
+    },
+    "backup-config-x-servicebroker-request": {
+      "type": "object",
+      "properties": {
+        "backup-config": {
+          "type": "object",
+          "properties": {
+            "eviction-policy": {
+              "enum": [
+                "fifo",
+                "lilo",
+                "none"
+              ]
+            },
+            "pgp-key": {
+              "type": "string"
+            },
+            "destination-blob": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "backup-config"
+      ]
+    }
+  }
 }
