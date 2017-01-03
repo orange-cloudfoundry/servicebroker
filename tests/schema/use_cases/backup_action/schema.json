@@ -4,6 +4,9 @@
   "description": "schema for mysql service",
   "type": "object",
   "properties": {
+    "x-servicebroker-plan-id": {
+        "enum": ["premium-plan-guid", "standard-plan-guid"]
+    },
     "x-servicebroker-request": {
       "type": "object",
       "properties": {
@@ -18,17 +21,17 @@
           }
         }
       },
-      "required": [
-        "billing-account"
-      ]
+      "dependencies": {
+
+      }
     },
     "x-servicebroker-method": {
       "enum": ["backup", "restore"]
-    },
-    "additionalProperties": true,
-    "required": [
-      "x-servicebroker-request",
-      "x-servicebroker-method"
-    ]
-  }
+    }
+  },
+  "additionalProperties": true,
+  "required": [
+    "x-servicebroker-request",
+    "x-servicebroker-method"
+  ]
 }
