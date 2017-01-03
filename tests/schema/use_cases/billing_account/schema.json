@@ -1,0 +1,29 @@
+{
+  "id": "http://some.site.somewhere/entry-schema#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "schema for mysql service",
+  "type": "object",
+  "required": [
+    "storage"
+  ],
+  "properties": {
+    "x-servicebroker-request": {
+      "type": "object",
+      "properties": {
+        "billing-account": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "billing-account"
+      ]
+    },
+    "patternProperties": {
+      "^x-servicebroker-((?!request).)+$": {}
+    },
+    "additionalProperties": false,
+    "required": [
+      "x-servicebroker-request"
+    ]
+  }
+}

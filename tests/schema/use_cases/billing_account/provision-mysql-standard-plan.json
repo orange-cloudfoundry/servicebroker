@@ -1,0 +1,9 @@
+{
+  "x-servicebroker-service-id": "mysql-service-guid",
+  "x-servicebroker-plan-id": "standard-plan-guid",
+  "x-servicebroker-object": "service_instance",
+  "x-servicebroker-method": "provision",
+  "x-servicebroker-request": {
+    "billing-account": "1234"
+  }
+}
