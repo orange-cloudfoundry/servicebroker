@@ -7,20 +7,28 @@
     "x-servicebroker-request": {
       "type": "object",
       "properties": {
-        "billing-account": {
-          "type": "string"
+        "backup-config": {
+          "type": "object",
+          "properties": {
+            "eviction-policy": {
+                "enum": ["fifo", "lilo", "none"]
+            },
+            "pgp-key": {"type": "string"},
+            "destination-blob": {"type": "string"}
+          }
         }
       },
       "required": [
         "billing-account"
       ]
     },
-    "patternProperties": {
-      "^x-servicebroker-((?!request).)+$": {}
+    "x-servicebroker-method": {
+      "enum": ["backup", "restore"]
     },
-    "additionalProperties": false,
+    "additionalProperties": true,
     "required": [
-      "x-servicebroker-request"
+      "x-servicebroker-request",
+      "x-servicebroker-method"
     ]
   }
 }
