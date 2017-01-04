@@ -1,6 +1,8 @@
 This is a set of use-cases validated against the service broker schemas (for input parameters, binding output)
  
- Each use case come with a [Guerkin-formatted](https://cucumber.io/docs/reference) scenario referencing JSON-formatted user-inputs, schema and expected outcome
+ Each use case come with a [Guerkin-formatted](https://cucumber.io/docs/reference) scenario referencing JSON-formatted user-inputs, schema and expected outcome.
+ 
+ The plan is to automate validation of these schemas. In the meantime, they can be validated through interactive use of http://jsonschemalint.com/#/version/draft-05/markup/json
  
  TODO:
  - per plan constraints
