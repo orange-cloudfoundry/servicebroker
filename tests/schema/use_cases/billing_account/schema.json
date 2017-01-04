@@ -2,8 +2,114 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "schema for mysql service",
   "type": "object",
-  "properties": {
+  "oneOf": [
+    {
+      "properties": {
+        "x-servicebroker-meta": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/x-servicebroker-meta"
+            },
+            {
+              "$ref": "#/definitions/standard-plan"
+            }
+          ]
+        },
+        "x-servicebroker-request": {
+          "$ref": "#/definitions/empty"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "x-servicebroker-request",
+        "x-servicebroker-meta"
+      ]
+    },
+    {
+      "properties": {
+        "x-servicebroker-meta": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/x-servicebroker-meta"
+            },
+            {
+              "$ref": "#/definitions/premium-plan"
+            }
+          ]
+        },
+        "x-servicebroker-request": {
+          "$ref": "#/definitions/account-id-x-servicebroker-request"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "x-servicebroker-request",
+        "x-servicebroker-meta"
+      ]
+    }
+  ],
+  "definitions": {
+    "x-servicebroker-meta": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "enum": [
+            "service_instance",
+            "service_binding"
+          ]
+        },
+        "method": {
+          "enum": [
+            "provision",
+            "bind",
+            "unbind",
+            "unprovision"
+          ]
+        },
+        "service-id": {
+          "type": "string"
+        },
+        "plan-id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "service-id",
+        "plan-id",
+        "object",
+        "method"
+      ]
+    },
+    "premium-plan": {
+      "type": "object",
+      "properties": {
+        "plan-id": {
+          "enum": [
+            "premium-plan-guid"
+          ]
+        }
+      }
+    },
+    "standard-plan": {
+      "type": "object",
+      "properties": {
+        "plan-id": {
+          "enum": [
+            "standard-plan-guid"
+          ]
+        }
+      }
+    },
     "x-servicebroker-request": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "empty": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "account-id-x-servicebroker-request": {
       "type": "object",
       "properties": {
         "billing-account": {
@@ -14,12 +120,5 @@
         "billing-account"
       ]
     }
-  },
-  "patternProperties": {
-    "^x-servicebroker-((?!request).)+$": {}
-  },
-  "additionalProperties": false,
-  "required": [
-    "x-servicebroker-request"
-  ]
+  }
 }
