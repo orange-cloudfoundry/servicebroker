@@ -3,11 +3,7 @@ This is a set of use-cases validated against the service broker schemas (for inp
  Each use case come with a [Guerkin-formatted](https://cucumber.io/docs/reference) scenario referencing JSON-formatted user-inputs, schema and expected outcome
  
  TODO:
- - inheritance to specialize meta
- - 
  - prototype schema extensions proposed for UI hints 
- - per plan constraints
-   - refactor oneOf to use definitions and avoid duplication
  - binding response format
  - broker composition
  - UI prompting users for valid values

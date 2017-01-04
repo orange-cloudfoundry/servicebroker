@@ -1,0 +1,13 @@
+{
+  "x-servicebroker-meta": {
+    "service-id": "mysql-service-guid",
+    "plan-id": "cluster-plan-guid",
+    "object": "service_binding",
+    "method": "bind"
+  },
+  "x-servicebroker-request": {
+    "billing-account": "1234"
+  },
+  "x-servicebroker-response": {
+  }
+}
