@@ -6,7 +6,6 @@
     "method": "bind"
   },
   "x-servicebroker-request": {
-    "billing-account": "1234"
   },
   "x-servicebroker-response": {
   }

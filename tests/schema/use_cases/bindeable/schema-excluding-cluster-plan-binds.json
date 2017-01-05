@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "schema for mysql service",
+  "type": "object",
+  "not": {
+    "properties": {
+      "x-servicebroker-meta": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/x-servicebroker-meta"
+          },
+          {
+            "$ref": "#/definitions/cluster-plan"
+          },
+          {
+            "$ref": "#/definitions/binding-methods"
+          }
+        ]
+      }
+    },
+    "required": [
+      "x-servicebroker-meta"
+    ]
+  },
+  "properties": {
+    "x-servicebroker-meta": {
+      "$ref": "#/definitions/x-servicebroker-meta"
+    },
+    "x-servicebroker-request": {
+      "$ref": "#/definitions/empty"
+    },
+    "x-servicebroker-response": {
+      "$ref": "#/definitions/mysql-credentials-format"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "x-servicebroker-meta",
+    "x-servicebroker-request",
+    "x-servicebroker-response"
+  ],
+  "definitions": {
+    "x-servicebroker-meta": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "enum": [
+            "service_instance",
+            "service_binding"
+          ]
+        },
+        "method": {
+          "enum": [
+            "provision",
+            "bind",
+            "unbind",
+            "unprovision"
+          ]
+        },
+        "service-id": {
+          "type": "string"
+        },
+        "plan-id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "service-id",
+        "plan-id",
+        "object",
+        "method"
+      ]
+    },
+    "binding-methods": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "enum": [
+            "bind",
+            "unbind"
+          ]
+        }
+      }
+    },
+    "cluster-plan": {
+      "type": "object",
+      "properties": {
+        "plan-id": {
+          "enum": [
+            "cluster-plan-guid"
+          ]
+        }
+      }
+    },
+    "shared-plan": {
+      "type": "object",
+      "properties": {
+        "plan-id": {
+          "enum": [
+            "shared-plan-guid"
+          ]
+        }
+      }
+    },
+    "x-servicebroker-request": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "empty": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "mysql-credentials-format": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "hostname": {
+          "type": "string"
+        },
+        "port": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "jdbcUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hostname",
+        "port",
+        "username",
+        "password",
+        "uri",
+        "jdbcUrl"
+      ]
+    }
+  }
+}

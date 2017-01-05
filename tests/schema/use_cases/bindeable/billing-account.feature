@@ -8,3 +8,13 @@ Feature: As a service author, in order to support composable plans documented at
     Then the response is marked as valid
     When the UI user evaluates the "shared-bind-response.json" response
     Then the response is marked as valid
+  Scenario: mysql cluster service plan is not bindeable, i.e. bind requests are invalid in this plan
+    Given the schema specified "schema-excluding-cluster-plan-binds.json" as part of the catalog response specified in "catalog-with-broker-attached-schema.json"
+    When the UI user evaluates the "unsupported-cluster-bind-request.json" response
+    Then the response is marked as invalid
+    When the UI user evaluates the "cluster-bind-response.json" response
+    Then the response is marked as invalid
+    When the UI user evaluates the "shared-bind-response.json" response
+    Then the response is marked as valid
+    When the UI user evaluates the "shared-bind-response.json" response
+    Then the response is marked as valid
