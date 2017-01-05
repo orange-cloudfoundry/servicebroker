@@ -21,6 +21,7 @@ This is a set of use-cases validated against the service broker schemas (for inp
             - v2 key and null value
             - move out of path
                 - then rename path ? 
+    - next: update schemas
  - rename request into "request-parameters"
  - broker composition
  - UI prompting users for valid values

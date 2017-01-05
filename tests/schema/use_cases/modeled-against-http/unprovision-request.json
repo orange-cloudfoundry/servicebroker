@@ -1,0 +1,16 @@
+{
+  "x-servicebroker-request": {
+    "headers": {
+      "X-Broker-Api-Version": "2.11",
+      "Authorization": "Bearer"
+    },
+    "method": "delete",
+    "path-params": {
+      "service_instances": "instance_id"
+    },
+    "body-params": {
+    }
+  },
+  "x-servicebroker-response": {
+  }
+}

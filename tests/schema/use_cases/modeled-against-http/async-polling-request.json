@@ -1,0 +1,14 @@
+{
+  "x-servicebroker-meta": {
+    "method": "put",
+    "version": "v2",
+    "path-params": {
+      "service_instances": "instance_id",
+      "last_operation": null
+    }
+  },
+  "x-servicebroker-request": {
+  },
+  "x-servicebroker-response": {
+  }
+}

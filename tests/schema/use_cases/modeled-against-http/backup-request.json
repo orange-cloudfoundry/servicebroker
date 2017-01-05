@@ -1,0 +1,23 @@
+{
+  "x-servicebroker-request": {
+    "headers": {
+      "X-Broker-Api-Version": "2.11",
+      "Authorization": "Bearer"
+    },
+    "method": "post",
+    "path-params": {
+      "service_instances": "instance_id",
+      "action": "backup"
+    },
+    "body-params": {
+      "plan_id": "premium-plan-guid",
+      "service_id": "mysql-service-guid",
+      "parameters": {
+        "billing-account": "1234"
+      }
+    }
+  },
+  "x-servicebroker-response": {
+  }
+}
+
