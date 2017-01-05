@@ -6,8 +6,7 @@ This is a set of use-cases validated against the service broker schemas (for inp
  
  TODO:
  - prototype schema extensions proposed for UI hints 
- - use description to document rules
- - binding response format
+ - prototype URI style meta-data
  - broker composition
  - UI prompting users for valid values
  - use description to support UI hints documentation
@@ -15,6 +14,11 @@ This is a set of use-cases validated against the service broker schemas (for inp
  - complex real life examples: 
     - [db-dumper-service](https://github.com/orange-cloudfoundry/db-dumper-service)
     - [autosleep](https://github.com/cloudfoundry-community/autosleep) 
+ 
+DONE:
+- per plan constraints
+    - oneOf/not/allOf to reuse definitions and avoid duplication
+- binding response format
+- use description to document rules
+- inheritance to specialize meta
     
-Failed attempts:
-- dependencies to specialize meta : property or schema dependencies only work on keys, not on values. In our specialization case, we need to have a depencency on the presence of a value.
