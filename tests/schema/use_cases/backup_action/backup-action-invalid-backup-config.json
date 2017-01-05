@@ -1,0 +1,15 @@
+{
+  "x-servicebroker-meta": {
+    "service-id": "mysql-service-guid",
+    "plan-id": "premium-plan-guid",
+    "object": "service_instance",
+    "method": "backup"
+  },
+  "x-servicebroker-request": {
+    "backup-config": {
+      "eviction-policy": "invalid-policy-value",
+      "pgp-key": "12345",
+      "destination-blob": "my-private-blob"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "x-servicebroker-meta": {
+    "service-id": "mysql-service-guid",
+    "plan-id": "premium-plan-guid",
+    "object": "service_instance",
+    "method": "backup"
+  },
+  "x-servicebroker-request": {
+  }
+}

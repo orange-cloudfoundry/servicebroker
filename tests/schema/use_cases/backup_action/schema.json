@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "schema for mysql service",
+  "properties": {
+    "x-servicebroker-meta": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/x-servicebroker-meta"
+        },
+        {
+          "$ref": "#/definitions/premium-plan-backup-action"
+        }
+      ]
+    },
+    "x-servicebroker-request": {
+      "$ref": "#/definitions/backup-config-x-servicebroker-request"
+    }
+  },
+  "additionalProperties": true,
+  "required": [
+    "x-servicebroker-meta",
+    "x-servicebroker-request"
+  ],
+  "definitions": {
+    "x-servicebroker-meta": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "enum": [
+            "service_instance",
+            "service_binding"
+          ]
+        },
+        "method": {
+          "enum": [
+            "provision",
+            "bind",
+            "unbind",
+            "unprovision",
+            "backup",
+            "restore"
+          ]
+        },
+        "service-id": {
+          "type": "string"
+        },
+        "plan-id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "object",
+        "method",
+        "service-id",
+        "plan-id"
+      ]
+    },
+    "premium-plan-backup-action": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "enum": [
+            "backup"
+          ]
+        },
+        "plan-id": {
+          "enum": [
+            "premium-plan-guid"
+          ]
+        }
+      },
+      "required": [
+        "plan-id",
+        "method"
+      ]
+    },
+    "backup-config-x-servicebroker-request": {
+      "type": "object",
+      "properties": {
+        "backup-config": {
+          "type": "object",
+          "properties": {
+            "eviction-policy": {
+              "enum": [
+                "fifo",
+                "lilo",
+                "none"
+              ]
+            },
+            "pgp-key": {
+              "type": "string"
+            },
+            "destination-blob": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "backup-config"
+      ]
+    }
+  }
+}

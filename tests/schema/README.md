@@ -6,7 +6,22 @@ This is a set of use-cases validated against the service broker schemas (for inp
  
  TODO:
  - prototype schema extensions proposed for UI hints 
- - prototype URI style meta-data
+ - prototype URI style meta-data:
+    - why ?
+        - to be more robust to future specs changes
+        - to avoid confusions and name mapping/conversions
+        - to help in identifying a series of exchanges in a user/sb dialog
+    - what format for path ? 
+       - a plain string (can be matched through regexp)
+       - an array of subpath string 
+        - how can this be matched ? items does not 
+       - an object 
+          - what to do with the v2 version ?
+            - version key
+            - v2 key and null value
+            - move out of path
+                - then rename path ? 
+ - rename request into "request-parameters"
  - broker composition
  - UI prompting users for valid values
  - use description to support UI hints documentation
@@ -22,3 +37,16 @@ DONE:
 - use description to document rules
 - inheritance to specialize meta
     
+
+    "provision_endpoint_properties": [
+      "v2",
+      "service_instances",
+      ":instance_id"
+    ],
+    "bind_endpoint_properties": [
+      "v2",
+      "service_instances",
+      ":instance_id",
+      "service_bindings",
+      "binding_id"
+    ],
