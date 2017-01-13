@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="schema" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="tests/schema/use_cases/backup_action" />
+                  </Item>
+                </list>
+              </option>
+              <option name="relativePathToSchema" value="tests/schema/use_cases/backup_action/schema.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="schema-with-hints">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="schema-with-hints" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="tests/schema/use_cases/bindeable" />
+                  </Item>
+                </list>
+              </option>
+              <option name="relativePathToSchema" value="tests/schema/use_cases/bindeable/schema-with-hints.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>

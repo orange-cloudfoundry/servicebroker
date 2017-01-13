@@ -79,6 +79,7 @@
       "type": "object",
       "properties": {
         "backup-config": {
+          "description": "Configures where mysql backup are performed",
           "type": "object",
           "properties": {
             "eviction-policy": {
