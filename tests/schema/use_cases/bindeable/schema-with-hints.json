@@ -6,7 +6,6 @@
     {
       "title": "service_instance request on cluster plan",
       "description": "not bindeable, returns no credentials",
-
       "properties": {
         "x-servicebroker-meta": {
           "allOf": [
@@ -35,7 +34,6 @@
     {
       "title": "service_instance request on shared plan",
       "description": "bindeable, returns mysql credentials",
-
       "properties": {
         "x-servicebroker-meta": {
           "allOf": [
@@ -66,7 +64,6 @@
     "x-servicebroker-meta": {
       "title": "standard service broker API meta-data",
       "description": "describes meta-data about the request",
-
       "type": "object",
       "properties": {
         "object": {
@@ -133,28 +130,38 @@
           "type": "string"
         },
         "hostname": {
-          "type": "string"
+          "type": "string",
+          "description": "FQDN or IP address"
         },
         "port": {
           "type": "string"
         },
         "username": {
-          "type": "string"
+          "type": "string",
+          "x-servicebroker-fieldType": "secret"
         },
         "password": {
           "type": "string",
-          "title" : "the password to provide"
+          "x-servicebroker-fieldType": "secret"
         },
         "uri": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "x-servicebroker-fieldType": "secret"
         },
         "jdbcUrl": {
-          "type": "string"
+          "type": "string",
+          "x-servicebroker-fieldType": "secret"
         }
       },
       "required": [
-        "name", "hostname", "port", "username", "password", "uri", "jdbcUrl"
+        "name",
+        "hostname",
+        "port",
+        "username",
+        "password",
+        "uri",
+        "jdbcUrl"
       ]
     }
   }
