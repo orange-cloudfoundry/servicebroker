@@ -77,7 +77,6 @@
       "required": [
         "service-id",
         "plan-id",
-        "object",
         "method"
       ]
     },
