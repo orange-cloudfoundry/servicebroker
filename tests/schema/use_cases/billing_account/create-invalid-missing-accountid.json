@@ -1,11 +1,11 @@
 {
   "x-servicebroker-context": {
-    "service-id": "postgresql-service-guid",
+    "service-id": "mysql-service-guid",
     "plan-id": "standard-plan-guid",
     "object": "service_instance",
-    "method": "provision"
+    "method": "create"
   },
   "x-servicebroker-request": {
-    "billing-account": "1234"
+
   }
 }

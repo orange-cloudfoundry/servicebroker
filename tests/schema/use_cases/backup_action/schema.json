@@ -33,10 +33,10 @@
         },
         "method": {
           "enum": [
-            "provision",
+            "create",
             "bind",
             "unbind",
-            "unprovision",
+            "delete",
             "backup",
             "restore"
           ]

@@ -68,10 +68,10 @@
         },
         "method": {
           "enum": [
-            "provision",
+            "create",
             "bind",
             "unbind",
-            "unprovision"
+            "delete"
           ]
         },
         "service-id": {
