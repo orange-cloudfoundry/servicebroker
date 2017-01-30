@@ -1,7 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Open Service Broker catalog-attached schema proposal see https://docs.google.com/document/d/1-IKI-PwPnhtbK0su1UzWA_UoyaCjL8S2d6ky3Xmuwvg/edit#",
-  "type": "object",
+  "type":"object",
+  "properties": {
+    "x-servicebroker-request": { "$ref": "#/definitions/x-servicebroker-request" },
+    "x-servicebroker-context": { "$ref": "#/definitions/x-servicebroker-context" },
+    "x-servicebroker-response": { "$ref": "#/definitions/x-servicebroker-response" }
+  },
+  "required": ["x-servicebroker-context" ],
+
 
   "definitions": {
     "x-servicebroker-context": {

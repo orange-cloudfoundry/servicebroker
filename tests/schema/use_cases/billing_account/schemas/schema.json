@@ -8,7 +8,7 @@
         "x-servicebroker-context": {
           "allOf": [
             {
-              "$ref": "#/definitions/x-servicebroker-context"
+              "$ref": "osb-core-schema.json#/definitions/x-servicebroker-context"
             },
             {
               "$ref": "#/definitions/standard-plan"
@@ -16,7 +16,7 @@
           ]
         },
         "x-servicebroker-request": {
-          "$ref": "#/definitions/empty"
+          "$ref": "osb-core-schema.json#/definitions/empty"
         }
       },
       "additionalProperties": false,
@@ -30,7 +30,7 @@
         "x-servicebroker-context": {
           "allOf": [
             {
-              "$ref": "#/definitions/x-servicebroker-context"
+              "$ref": "osb-core-schema.json#definitions/x-servicebroker-context"
             },
             {
               "$ref": "#/definitions/premium-plan"
@@ -49,37 +49,6 @@
     }
   ],
   "definitions": {
-    "x-servicebroker-context": {
-      "type": "object",
-      "properties": {
-        "object": {
-          "enum": [
-            "service_instance",
-            "service_binding"
-          ]
-        },
-        "method": {
-          "enum": [
-            "create",
-            "bind",
-            "unbind",
-            "delete"
-          ]
-        },
-        "service-id": {
-          "type": "string"
-        },
-        "plan-id": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "service-id",
-        "plan-id",
-        "method"
-      ]
-    },
     "premium-plan": {
       "type": "object",
       "properties": {
@@ -99,14 +68,6 @@
           ]
         }
       }
-    },
-    "x-servicebroker-request": {
-      "type": "object",
-      "additionalProperties": true
-    },
-    "empty": {
-      "type": "object",
-      "additionalProperties": false
     },
     "account-id-x-servicebroker-request": {
       "type": "object",

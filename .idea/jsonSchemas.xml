@@ -19,22 +19,6 @@
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="billing_account">
-          <value>
-            <SchemaInfo>
-              <option name="name" value="billing_account" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="tests/schema/use_cases/billing_account/exchange-descriptions" />
-                  </Item>
-                </list>
-              </option>
-              <option name="relativePathToSchema" value="tests/schema/use_cases/billing_account/schemas/schema.json" />
-            </SchemaInfo>
-          </value>
-        </entry>
         <entry key="draft4-schema">
           <value>
             <SchemaInfo>
@@ -42,16 +26,59 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="*schema.json" />
-                    <option name="pattern" value="true" />
+                    <option name="path" value="tests/schema/use_cases/billing_account/schemas/schema.json" />
                   </Item>
                   <Item>
-                    <option name="directory" value="true" />
-                    <option name="path" value="tests/schema/use_cases/billing_account/schemas" />
+                    <option name="path" value="tests/schema/use_cases/billing_account/schemas/osb-core-schema.json" />
                   </Item>
                 </list>
               </option>
               <option name="relativePathToSchema" value="tests/schema/use_cases/json-schema-specs/draft4-schema.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="foo.schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="foo.schema" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="tests/schema/use_cases/billing_account/schemas/docs/docs.json" />
+                  </Item>
+                </list>
+              </option>
+              <option name="relativePathToSchema" value="tests/schema/use_cases/billing_account/schemas/foo.schema.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="osb-core-schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="osb-core-schema" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="tests/schema/use_cases/billing_account/schemas/osb-doc-1.json" />
+                  </Item>
+                </list>
+              </option>
+              <option name="relativePathToSchema" value="tests/schema/use_cases/billing_account/schemas/osb-core-schema.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="schema" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="tests/schema/use_cases/billing_account/exchange-descriptions/test-validation.json" />
+                  </Item>
+                </list>
+              </option>
+              <option name="relativePathToSchema" value="tests/schema/use_cases/billing_account/schemas/schema.json" />
             </SchemaInfo>
           </value>
         </entry>
