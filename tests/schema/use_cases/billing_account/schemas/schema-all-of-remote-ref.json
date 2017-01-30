@@ -27,20 +27,13 @@
     "premium-plan": {
       "type": "object",
       "properties": {
-        "plan-id": {
-          "enum": [
-            "premium-plan-guid"
-          ]
-        }
+        "plan-id": { "enum": [ "premium-plan-guid"]}
       }
     },
     "standard-plan": {
       "type": "object",
       "properties": {
-        "plan-id": {
-          "enum": [
-            "standard-plan-guid"
-          ]
+        "plan-id": { "enum": [ "standard-plan-guid"]
         }
       }
     },
