@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://raw.githubusercontent.com/orange-cloudfoundry/servicebroker/dialogue-tree-subschemas/tests/schema/use_cases/billing_account/schemas/schema.json",
   "description": "Open Service Broker catalog-attached schema proposal see https://docs.google.com/document/d/1-IKI-PwPnhtbK0su1UzWA_UoyaCjL8S2d6ky3Xmuwvg/edit#",
   "type":"object",
   "properties": {
