@@ -7,10 +7,10 @@
       "title": "service_instance request on cluster plan",
       "description": "not bindeable, returns no credentials",
       "properties": {
-        "x-servicebroker-meta": {
+        "x-servicebroker-context": {
           "allOf": [
             {
-              "$ref": "#/definitions/x-servicebroker-meta"
+              "$ref": "#/definitions/x-servicebroker-context"
             },
             {
               "$ref": "#/definitions/cluster-plan"
@@ -26,7 +26,7 @@
       },
       "additionalProperties": false,
       "required": [
-        "x-servicebroker-meta",
+        "x-servicebroker-context",
         "x-servicebroker-request",
         "x-servicebroker-response"
       ]
@@ -35,10 +35,10 @@
       "title": "service_instance request on shared plan",
       "description": "bindeable, returns mysql credentials",
       "properties": {
-        "x-servicebroker-meta": {
+        "x-servicebroker-context": {
           "allOf": [
             {
-              "$ref": "#/definitions/x-servicebroker-meta"
+              "$ref": "#/definitions/x-servicebroker-context"
             },
             {
               "$ref": "#/definitions/shared-plan"
@@ -54,14 +54,14 @@
       },
       "additionalProperties": false,
       "required": [
-        "x-servicebroker-meta",
+        "x-servicebroker-context",
         "x-servicebroker-request",
         "x-servicebroker-response"
       ]
     }
   ],
   "definitions": {
-    "x-servicebroker-meta": {
+    "x-servicebroker-context": {
       "title": "standard service broker API meta-data",
       "description": "describes meta-data about the request",
       "type": "object",

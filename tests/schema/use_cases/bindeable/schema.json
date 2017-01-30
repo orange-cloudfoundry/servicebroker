@@ -5,10 +5,10 @@
   "oneOf": [
     {
       "properties": {
-        "x-servicebroker-meta": {
+        "x-servicebroker-context": {
           "allOf": [
             {
-              "$ref": "#/definitions/x-servicebroker-meta"
+              "$ref": "#/definitions/x-servicebroker-context"
             },
             {
               "$ref": "#/definitions/cluster-plan"
@@ -24,17 +24,17 @@
       },
       "additionalProperties": false,
       "required": [
-        "x-servicebroker-meta",
+        "x-servicebroker-context",
         "x-servicebroker-request",
         "x-servicebroker-response"
       ]
     },
     {
       "properties": {
-        "x-servicebroker-meta": {
+        "x-servicebroker-context": {
           "allOf": [
             {
-              "$ref": "#/definitions/x-servicebroker-meta"
+              "$ref": "#/definitions/x-servicebroker-context"
             },
             {
               "$ref": "#/definitions/shared-plan"
@@ -50,14 +50,14 @@
       },
       "additionalProperties": false,
       "required": [
-        "x-servicebroker-meta",
+        "x-servicebroker-context",
         "x-servicebroker-request",
         "x-servicebroker-response"
       ]
     }
   ],
   "definitions": {
-    "x-servicebroker-meta": {
+    "x-servicebroker-context": {
       "type": "object",
       "properties": {
         "object": {

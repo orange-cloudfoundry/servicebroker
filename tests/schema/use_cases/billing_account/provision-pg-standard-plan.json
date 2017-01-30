@@ -1,5 +1,5 @@
 {
-  "x-servicebroker-meta": {
+  "x-servicebroker-context": {
     "service-id": "postgresql-service-guid",
     "plan-id": "standard-plan-guid",
     "object": "service_instance",

@@ -2,10 +2,10 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "schema for mysql service",
   "properties": {
-    "x-servicebroker-meta": {
+    "x-servicebroker-context": {
       "allOf": [
         {
-          "$ref": "#/definitions/x-servicebroker-meta"
+          "$ref": "#/definitions/x-servicebroker-context"
         },
         {
           "$ref": "#/definitions/premium-plan-backup-action"
@@ -18,11 +18,11 @@
   },
   "additionalProperties": true,
   "required": [
-    "x-servicebroker-meta",
+    "x-servicebroker-context",
     "x-servicebroker-request"
   ],
   "definitions": {
-    "x-servicebroker-meta": {
+    "x-servicebroker-context": {
       "type": "object",
       "properties": {
         "object": {

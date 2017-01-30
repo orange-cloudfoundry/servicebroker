@@ -3,10 +3,10 @@
   <component name="JsonSchemaMappingsProjectConfiguration">
     <state>
       <map>
-        <entry key="schema">
+        <entry key="backup_action">
           <value>
             <SchemaInfo>
-              <option name="name" value="schema" />
+              <option name="name" value="backup_action" />
               <option name="patterns">
                 <list>
                   <Item>
@@ -16,6 +16,22 @@
                 </list>
               </option>
               <option name="relativePathToSchema" value="tests/schema/use_cases/backup_action/schema.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="billing_account">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="billing_account" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="tests/schema/use_cases/billing_account" />
+                  </Item>
+                </list>
+              </option>
+              <option name="relativePathToSchema" value="tests/schema/use_cases/billing_account/schema.json" />
             </SchemaInfo>
           </value>
         </entry>

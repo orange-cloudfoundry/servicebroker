@@ -4,10 +4,10 @@
   "type": "object",
   "not": {
     "properties": {
-      "x-servicebroker-meta": {
+      "x-servicebroker-context": {
         "allOf": [
           {
-            "$ref": "#/definitions/x-servicebroker-meta"
+            "$ref": "#/definitions/x-servicebroker-context"
           },
           {
             "$ref": "#/definitions/cluster-plan"
@@ -19,12 +19,12 @@
       }
     },
     "required": [
-      "x-servicebroker-meta"
+      "x-servicebroker-context"
     ]
   },
   "properties": {
-    "x-servicebroker-meta": {
-      "$ref": "#/definitions/x-servicebroker-meta"
+    "x-servicebroker-context": {
+      "$ref": "#/definitions/x-servicebroker-context"
     },
     "x-servicebroker-request": {
       "$ref": "#/definitions/empty"
@@ -35,12 +35,12 @@
   },
   "additionalProperties": false,
   "required": [
-    "x-servicebroker-meta",
+    "x-servicebroker-context",
     "x-servicebroker-request",
     "x-servicebroker-response"
   ],
   "definitions": {
-    "x-servicebroker-meta": {
+    "x-servicebroker-context": {
       "type": "object",
       "properties": {
         "object": {
