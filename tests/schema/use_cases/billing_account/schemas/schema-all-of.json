@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "schema for mysql service",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "osb-core-schema.json"
+    },
+    {
+      "oneOf": [
+        {
+          "properties": {
+            "x-servicebroker-context": {
+              "$ref": "#/definitions/standard-plan"
+            },
+            "x-servicebroker-request": {
+              "$ref": "osb-core-schema.json#/definitions/empty"
+            }
+          }
+        },
+        {
+          "properties": {
+            "x-servicebroker-context": {
+              "$ref": "#/definitions/premium-plan"
+            },
+            "x-servicebroker-request": {
+              "$ref": "#/definitions/account-id-x-servicebroker-request"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "premium-plan": {
+      "type": "object",
+      "properties": {
+        "plan-id": {
+          "enum": [
+            "premium-plan-guid"
+          ]
+        }
+      }
+    },
+    "standard-plan": {
+      "type": "object",
+      "properties": {
+        "plan-id": {
+          "enum": [
+            "standard-plan-guid"
+          ]
+        }
+      }
+    },
+    "account-id-x-servicebroker-request": {
+      "type": "object",
+      "properties": {
+        "billing-account": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "billing-account"
+      ]
+    }
+  }
+}

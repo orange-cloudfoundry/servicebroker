@@ -56,11 +56,6 @@
       "description":"the broker response to expected to the received request in the context",
       "type": "object",
       "additionalProperties": true
-    },
-    "empty": {
-      "description":"syntaxic sugar to specify an empty object",
-      "type": "object",
-      "additionalProperties": false
     }
   }
 }

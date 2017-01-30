@@ -2,7 +2,7 @@ This directory contains a set of use-cases validated against the service broker 
  
  Each use case come with a [Guerkin-formatted](https://cucumber.io/docs/reference) scenario referencing JSON-formatted user-inputs, schema and expected outcome.
  
- The plan is to automate validation of these schemas. In the meantime, they can be validated through interactive use of http://jsonschemalint.com/#/version/draft-05/markup/json
+ The plan is to automate validation of these schemas. In the meantime, they can be validated through interactive use of http://jsonschemalint.com/#/version/draft-05/markup/json or http://www.jsonschemavalidator.net/ (which supports remote references)
  
  
  TODO:
