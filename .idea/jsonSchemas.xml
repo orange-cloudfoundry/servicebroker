@@ -27,11 +27,31 @@
                 <list>
                   <Item>
                     <option name="directory" value="true" />
-                    <option name="path" value="tests/schema/use_cases/billing_account" />
+                    <option name="path" value="tests/schema/use_cases/billing_account/exchange-descriptions" />
                   </Item>
                 </list>
               </option>
-              <option name="relativePathToSchema" value="tests/schema/use_cases/billing_account/schema.json" />
+              <option name="relativePathToSchema" value="tests/schema/use_cases/billing_account/schemas/schema.json" />
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="draft4-schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="draft4-schema" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="*schema.json" />
+                    <option name="pattern" value="true" />
+                  </Item>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="tests/schema/use_cases/billing_account/schemas" />
+                  </Item>
+                </list>
+              </option>
+              <option name="relativePathToSchema" value="tests/schema/use_cases/json-schema-specs/draft4-schema.json" />
             </SchemaInfo>
           </value>
         </entry>

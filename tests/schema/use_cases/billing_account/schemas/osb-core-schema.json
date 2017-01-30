@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Open Service Broker catalog-attached schema proposal see https://docs.google.com/document/d/1-IKI-PwPnhtbK0su1UzWA_UoyaCjL8S2d6ky3Xmuwvg/edit#",
+  "type": "object",
+
+  "definitions": {
+    "x-servicebroker-context": {
+      "description":"the context the broker handles requests and responses",
+      "type": "object",
+      "properties": {
+        "object": {
+          "enum": [
+            "service_instance",
+            "service_binding"
+          ]
+        },
+        "method": {
+          "description":"the verbs of the service broker api: service instance create/update/delete and service binding/unbinding",
+          "enum": [
+            "create",
+            "bind",
+            "unbind",
+            "delete"
+          ]
+        },
+        "service-id": {
+          "description":"the service offering associated with the request",
+          "type": "string"
+        },
+        "plan-id": {
+          "description":"the service plan associated with the request",
+          "type": "string"
+        }
+      },
+      "additionalProperties": true,
+      "required": [
+        "service-id",
+        "plan-id",
+        "method"
+      ]
+    },
+    "x-servicebroker-request": {
+      "description":"the request input parameters associated with the context",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "x-servicebroker-response": {
+      "description":"the broker response to expected to the received request in the context",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "empty": {
+      "description":"syntaxic sugar to specify an empty object",
+      "type": "object",
+      "additionalProperties": false
+    }
+  }
+}
