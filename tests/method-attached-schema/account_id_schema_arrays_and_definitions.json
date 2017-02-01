@@ -15,6 +15,12 @@
           "required": [
             "billing-account"
           ]
+        },
+        "empty": {
+          "type": "object",
+          "properties": {
+          },
+          "additionalProperties": false
         }
       },
       "schemas": [
@@ -22,52 +28,28 @@
           "object": "service_instance",
           "method": "create",
           "parameters": {
-            "$ref": "#/definitions/x-servicebroker-request"
+            "$ref": "#/definitions/billing-account-params"
           }
         },
         {
           "object": "service_instance",
           "method": "update",
           "parameters": {
-            "type": "object",
-            "properties": {
-              "billing-account": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "billing-account"
-            ]
+            "$ref": "#/definitions/billing-account-params"
           }
         },
         {
           "object": "service_instance",
           "method": "update",
           "parameters": {
-            "type": "object",
-            "properties": {
-              "billing-account": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "billing-account"
-            ]
+            "$ref": "#/definitions/billing-account-params"
           }
         },
         {
           "object": "service_binding",
           "method": "create",
           "parameters": {
-            "type": "object",
-            "properties": {
-              "billing-account": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "billing-account"
-            ]
+            "$ref": "#/definitions/billing-account-params"
           }
         }
       ]
@@ -81,30 +63,21 @@
           "object": "service_instance",
           "method": "create",
           "parameters": {
-            "type": "object",
-            "properties": {
-            },
-            "additionalProperties": false
+            "$ref": "#/definitions/empty"
           }
         },
         {
           "object": "service_instance",
           "method": "update",
           "parameters": {
-            "type": "object",
-            "properties": {
-            },
-            "additionalProperties": false
+            "$ref": "#/definitions/empty"
           }
         },
         {
           "object": "service_binding",
           "method": "create",
           "parameters": {
-            "type": "object",
-            "properties": {
-            },
-            "additionalProperties": false
+            "$ref": "#/definitions/empty"
           }
         }
       ]
