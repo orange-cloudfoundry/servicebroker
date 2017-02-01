@@ -1,0 +1,54 @@
+{
+  "plans": [
+    {
+      "id": "premium-plan-guid",
+      "name": "premium-plan",
+      "description": "A mid-sided plan",
+      "schemas": {
+        "service_instances": {
+          "create": {
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "billing-account": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "billing-account"
+              ]
+            }
+          },
+          "update": {
+            "parameters": {}
+          }
+        },
+        "service_bindings": {
+          "create": {
+            "parameters": {}
+          }
+        }
+      }
+    },
+    {
+      "id": "standard-plan-guid",
+      "name": "standard-plan",
+      "description": "A mid-sided plan",
+      "schemas": {
+        "service_instances": {
+          "create": {
+            "parameters": {}
+          },
+          "update": {
+            "parameters": {}
+          }
+        },
+        "service_bindings": {
+          "create": {
+            "parameters": {}
+          }
+        }
+      }
+    }
+  ]
+}

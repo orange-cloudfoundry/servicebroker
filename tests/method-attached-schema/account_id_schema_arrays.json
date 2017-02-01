@@ -1,0 +1,108 @@
+{
+  "plans": [
+    {
+      "id": "premium-plan-guid",
+      "name": "premium-plan",
+      "description": "A mid-sided plan",
+      "schemas": [
+        {
+          "object": "service_instance",
+          "method": "create",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "billing-account": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "billing-account"
+            ]
+          }
+        },
+        {
+          "object": "service_instance",
+          "method": "update",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "billing-account": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "billing-account"
+            ]
+          }
+        },
+        {
+          "object": "service_instance",
+          "method": "update",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "billing-account": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "billing-account"
+            ]
+          }
+        },
+        {
+          "object": "service_binding",
+          "method": "create",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "billing-account": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "billing-account"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "standard-plan-guid",
+      "name": "standard-plan",
+      "description": "A mid-sided plan",
+      "schemas": [
+        {
+          "object": "service_instance",
+          "method": "create",
+          "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "object": "service_instance",
+          "method": "update",
+          "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "object": "service_binding",
+          "method": "create",
+          "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "additionalProperties": false
+          }
+        }
+      ]
+    }
+  ]
+}
