@@ -1,0 +1,48 @@
+{
+  "plans": [
+    {
+      "id": "premium-plan-guid",
+      "name": "premium-plan",
+      "description": "A mid-sided plan"
+    },
+    {
+      "id": "standard-plan-guid",
+      "name": "standard-plan",
+      "description": "A mid-sided plan"
+    }
+  ],
+  "schemas": [
+    {
+      "plan_id": "*",
+      "object": "service_instance",
+      "method": "create|update",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "billing-account": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "billing-account"
+        ]
+      }
+    },
+    {
+      "plan_id": "premium-plan-guid",
+      "object": "service_instance",
+      "method": "backup",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "backup-config": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "backup-config"
+        ]
+      }
+    }
+  ]
+}
