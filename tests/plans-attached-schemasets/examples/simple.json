@@ -1,0 +1,35 @@
+{
+  "plans": {},
+  "schemas": [
+    {
+      "applies-when": {
+        "service-id": "mysql",
+        "method": "create",
+        "object": "service_instance"
+      },
+      "credentials": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "uri": {
+            "description": "JDBC URI format",
+            "type": "String",
+            "format": "URI"
+          }
+        }
+      }
+    },
+    {
+      "applies-when": {
+        "service-id": "NFS-service",
+        "object": "service_binding",
+        "method": "create"
+      },
+      "volume_mount": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "description": "Volume mount opaque driver format"
+      }
+    }
+  ]
+}

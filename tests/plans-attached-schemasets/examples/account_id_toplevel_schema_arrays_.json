@@ -1,0 +1,44 @@
+{
+  "plans": [
+    {
+      "id": "premium-plan-guid",
+      "name": "premium-plan",
+      "description": "A high-end-sided plan"
+    },
+    {
+      "id": "standard-plan-guid",
+      "name": "standard-plan",
+      "description": "A mid-sided plan"
+    }
+  ],
+  "schemas": [
+    {
+      "applies-when": {
+        "plan_id": "standard-plan-guid",
+        "object": "service_instance",
+        "method": "create"
+      },
+
+      "parameters": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "properties": {
+          "param1": {
+            "type": "string",
+            "description": "A parameter for creating service instance"
+          }
+        },
+        "required": [
+          "param1"
+        ]
+      },
+      "credentials": {
+
+      },
+      "volume_mount": {
+
+      }
+
+    }
+  ]
+}

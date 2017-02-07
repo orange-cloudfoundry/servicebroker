@@ -13,9 +13,13 @@
   ],
   "schemas": [
     {
-      "plan_id": "*",
-      "object": "service_instance",
-      "method": "create|update",
+      "selectors": {
+        "plan_id": "*",
+        "object": "service_instance",
+        "method": "create|update",
+        "profile": "k8S",
+        "x-api-location": "us-east1"
+      },
       "parameters": {
         "type": "object",
         "properties": {
@@ -29,9 +33,11 @@
       }
     },
     {
-      "plan_id": "premium-plan-guid",
-      "object": "service_instance",
-      "method": "backup",
+      "selectors": {
+        "plan_id": "premium-plan-guid",
+        "object": "service_instance",
+        "method": "backup"
+      },
       "parameters": {
         "type": "object",
         "properties": {

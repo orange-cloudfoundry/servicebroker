@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Open Service Broker catalog-attached schema proposal see https://docs.google.com/document/d/1-IKI-PwPnhtbK0su1UzWA_UoyaCjL8S2d6ky3Xmuwvg/edit#",
+  "type": "object",
+  "properties": {
+    "schemas": {
+      "$ref": "#/definitions/schemaset"
+    },
+    "plans": {
+
+    }
+  },
+  "required": [
+    "schemas"
+  ],
+  "additionalProperties": true,
+  "definitions": {
+    "schemaset": {
+      "description": "Ordered list of schemas",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/schema"
+      }
+    },
+    "schema": {
+      "description": "A set of schemas to be applied in a given context. ",
+      "properties": {
+        "applies-when": {
+          "$ref": "#/definitions/selectors"
+        },
+        "parameters": {
+          "$ref": "http://json-schema.org/draft-04/schema#"
+        },
+        "credentials": {
+          "$ref": "http://json-schema.org/draft-04/schema#"
+        },
+        "volume_mount": {
+          "$ref": "http://json-schema.org/draft-04/schema#"
+        },
+        "required": [
+          "applies-when"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "selectors": {
+      "type": "object",
+      "description": "Defines the context in which schema should apply through a list of selectors that should all match for the context enable the associated schemas",
+      "properties": {
+        "service-id": {
+          "$ref": "#/definitions/service-id-selector"
+        },
+        "service-plan-id": {
+          "$ref": "#/definitions/plan-id-selector"
+        },
+        "object": {
+          "$ref": "#/definitions/object-selector"
+        },
+        "method": {
+          "$ref": "#/definitions/method-selector"
+        }
+      }
+    },
+    "service-id-selector": {
+      "description": "Selects a service offering by its service id",
+      "title": "service-id-selector",
+      "type": "string"
+    },
+    "plan-id-selector": {
+      "description": "Selects a service plan by its id",
+      "title": "plan-id-selector",
+      "type": "string"
+    },
+    "object-selector": {
+      "description": "Selects the type of object: service_instance, service_binding.",
+      "type": {
+        "enum": [
+          "service_instance",
+          "service_binding"
+        ]
+      }
+    },
+    "method-selector": {
+      "description": "Selects the method to invoke on each object: service_instance, service_binding. TODO: overlaps with object. TODO: needs extensibility for broker actions",
+      "type": {
+        "enum": [
+          "create",
+          "update"
+        ]
+      }
+    }
+  }
+}

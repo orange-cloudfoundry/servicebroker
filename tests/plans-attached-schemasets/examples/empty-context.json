@@ -1,0 +1,18 @@
+{
+  "schemas": [
+    {
+      "applies-when": {
+
+      },
+      "parameters": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description": "none of the broker method support input parameters",
+        "type": "object",
+        "properties": {
+
+        },
+        "additionalProperties": false
+      }
+    }
+  ]
+}

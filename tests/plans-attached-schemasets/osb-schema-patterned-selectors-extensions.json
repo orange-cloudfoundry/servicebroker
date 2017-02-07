@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Open Service Broker catalog-attached schema proposal see https://docs.google.com/document/d/1-IKI-PwPnhtbK0su1UzWA_UoyaCjL8S2d6ky3Xmuwvg/edit#",
+  "type": "object",
+  "properties": {
+    "schemas": {
+      "$ref": "#/definitions/schemaset"
+    }
+  },
+  "required": [
+    "schemas"
+  ],
+  "additionalProperties": true,
+  "definitions": {
+    "schemaset": {
+      "description": "Ordered list of schemas",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/schema"
+      }
+    },
+    "schema": {
+      "description": "A set of schemas to be applied in a given context. ",
+      "properties": {
+        "selectors": {
+          "$ref": "#/definitions/selectors"
+        },
+        "parameters": {
+          "$ref": "http://json-schema.org/draft-04/schema#"
+        },
+        "credentials": {
+          "$ref": "http://json-schema.org/draft-04/schema#"
+        },
+        "volume_mount": {
+          "$ref": "http://json-schema.org/draft-04/schema#"
+        },
+        "required": [
+          "context"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "selectors": {
+      "type": "object",
+      "description": "Defines the context in which schema should apply through a list of selectors that should all match for the context enable the associated schemas",
+      "properties": {
+        "service-plan-id": {
+          "$ref": "#/definitions/plan-id-selector"
+        },
+        "object": {
+          "$ref": "#/definitions/object-selector"
+        },
+        "method": {
+          "$ref": "#/definitions/method-selector"
+        }
+      }
+    },
+    "plan-id-selector": {
+      "description": "Selects a service plan by its id",
+      "oneOf": [
+        {
+          "title": "plan-id-exact-match",
+          "description": "service id simple equality",
+          "type": "string"
+        },
+        {
+          "title": "plan-id-regexp",
+          "description": "any plan id matching a regular expression",
+          "type": "string",
+          "format": "regex"
+        }
+      ]
+    },
+    "object-selector": {
+      "description": "Selects the type of object: service_instance, service_binding.",
+      "oneOf": [
+        {
+          "title": "object-exact-match",
+          "description": "object simple equality",
+          "type": {
+            "enum": [
+              "service_instance",
+              "service_binding"
+            ]
+          }
+        },
+        {
+          "title": "object-regexp",
+          "description": "any object matching a regular expression",
+          "type": "string",
+          "format": "regex"
+        }
+      ]
+    },
+    "method-selector": {
+      "description": "Selects the method to invoke on each object: service_instance, service_binding. TODO: overlaps with object. TODO: needs extensibility for broker actions",
+      "oneOf": [
+        {
+          "title": "method-exact-match",
+          "description": "object simple equality",
+          "type": {
+            "enum": [
+              "create",
+              "update",
+              "delete",
+              "bind",
+              "unbind"
+            ]
+          }
+        },
+        {
+          "title": "method-regexp",
+          "description": "any method matching a regular expression",
+          "type": "string",
+          "format": "regex"
+        }
+      ]
+    }
+  }
+}
