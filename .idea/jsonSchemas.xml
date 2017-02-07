@@ -10,16 +10,10 @@
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="tests/schema/use_cases/billing_account/schemas/schema.json" />
+                    <option name="path" value="tests/schema/osb-schema.json" />
                   </Item>
                   <Item>
-                    <option name="path" value="tests/schema/use_cases/billing_account/schemas/osb-core-schema.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="tests/schema/use_cases/billing_account/schemas/schema-standalone.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="tests/method-attached-schema/osb-schema.json" />
+                    <option name="path" value="tests/schema/osb-schema-patterned-selectors-extensions.json" />
                   </Item>
                 </list>
               </option>
@@ -35,11 +29,23 @@
                 <list>
                   <Item>
                     <option name="directory" value="true" />
-                    <option name="path" value="tests/plans-attached-schemasets/examples" />
+                    <option name="path" value="tests/schema/examples" />
+                  </Item>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="tests/schema/use_cases/backup_action" />
+                  </Item>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="tests/schema/use_cases/billing_account" />
+                  </Item>
+                  <Item>
+                    <option name="directory" value="true" />
+                    <option name="path" value="tests/schema/use_cases/bindeable" />
                   </Item>
                 </list>
               </option>
-              <option name="relativePathToSchema" value="tests/plans-attached-schemasets/osb-schema.json" />
+              <option name="relativePathToSchema" value="tests/schema/osb-schema.json" />
             </SchemaInfo>
           </value>
         </entry>

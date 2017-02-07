@@ -1,84 +1,21 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "schema for mysql service",
-  "type": "object",
-  "oneOf": [
+  "schemas": [
     {
-      "properties": {
-        "x-servicebroker-context": {
-          "allOf": [
-            {
-              "$ref": "osb-core-schema.json#/definitions/x-servicebroker-context"
-            },
-            {
-              "$ref": "#/definitions/standard-plan"
-            }
-          ]
+      "applies-when": {
+        "service-plan-id": "premium-plan-guid"
+      },
+      "parameters": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "billing-account": {
+            "type": "string"
+          }
         },
-        "x-servicebroker-request": {
-          "$ref": "osb-core-schema.json#/definitions/empty"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "x-servicebroker-request",
-        "x-servicebroker-context"
-      ]
-    },
-    {
-      "properties": {
-        "x-servicebroker-context": {
-          "allOf": [
-            {
-              "$ref": "osb-core-schema.json#definitions/x-servicebroker-context"
-            },
-            {
-              "$ref": "#/definitions/premium-plan"
-            }
-          ]
-        },
-        "x-servicebroker-request": {
-          "$ref": "#/definitions/account-id-x-servicebroker-request"
-        }
-      },
-      "additionalProperties": false,
-      "required": [
-        "x-servicebroker-request",
-        "x-servicebroker-context"
-      ]
-    }
-  ],
-  "definitions": {
-    "premium-plan": {
-      "type": "object",
-      "properties": {
-        "plan-id": {
-          "enum": [
-            "premium-plan-guid"
-          ]
-        }
+        "required": [
+          "billing-account"
+        ]
       }
-    },
-    "standard-plan": {
-      "type": "object",
-      "properties": {
-        "plan-id": {
-          "enum": [
-            "standard-plan-guid"
-          ]
-        }
-      }
-    },
-    "account-id-x-servicebroker-request": {
-      "type": "object",
-      "properties": {
-        "billing-account": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "billing-account"
-      ]
     }
-  }
+  ]
 }
