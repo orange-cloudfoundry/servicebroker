@@ -146,6 +146,37 @@ A web-friendly display name is camel-cased with spaces and punctuation supported
 |  metadata | object  | A list of metadata for a service plan.  |
 | free  | boolean  | When false, instances of this plan have a cost. The default is true  |
 |  bindable | boolean  |  Specifies whether instances of the service plan can be bound to applications. This field is optional. If specified, this takes precedence over the <tt>bindable</tt> attribute of the service. If not specified, the default is derived from the service. |
+| [schemas](#SObject) | object | Schema definitions for service instances and bindings for the plan. |
+
+
+##### Schema Object <a name="SObject"></a> #####
+
+|  Response field | Type  | Description  |
+|---|---|---|
+| [service-instances](#SIObject) | object | The schema definitions for all actions for a service instance. |
+| [service-bindings](#SBObject) | object | The schema definitions for all actions for a service binding. Used only if the service is bindable. |
+
+
+##### Service-instances Object <a name="SIObject"></a> #####
+
+|  Response field | Type  | Description  |
+|---|---|---|
+| [create](#IPObject) | object | The schema definitions for the input parameters. |
+| [update](#IPObject) | object | The schema definitions for the input parameters. |
+
+
+##### Service-bindings Object <a name="SBObject"></a> #####
+
+|  Response field | Type  | Description  |
+|---|---|---|
+| [create](#IPObject) | object | The schema definitions for the input parameters. |
+
+
+##### Input parameters Object <a name="IPObject"></a> #####
+
+|  Response field | Type  | Description  |
+|---|---|---|
+| parameters | JSON schema object | The schema definitions for the input parameters. Schema definitions must be valid [JSON Schema draft v4](http://json-schema.org/). It is recommended for broker authors explicitly mention the JSON schema draft4 version, as this will prevent breaking changes when in the future the OSB spec starts supporting draft v6 JSON schema, with low readability impact. Each input parameter is expressed as property within a json object. Therefore, a service supporting no input parameters should result into a schema only validating an empty object `{}`. |
 
 
 \* Fields with an asterisk are required.
@@ -204,6 +235,45 @@ A web-friendly display name is camel-cased with spaces and punctuation supported
           }, {
             "content": "40 concurrent connections"
         }]
+      },
+      "schemas": {
+        "service_instances": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "billing-account": {
+                "description": "Billing account number used to charge use of shared fake server.",
+                "type": "String"
+              }
+            }
+          },
+          "update": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "billing-account": {
+                "description": "Billing account number used to charge use of shared fake server.",
+                "type": "String"
+              }
+            }
+          }
+        },
+        "service_bindings": {
+          "create": {
+            "parameters": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "billing-account": {
+                "description": "Billing account number used to charge use of shared fake server.",
+                "type": "String"
+              }
+            }
+          }
+        }
       }
     }, {
       "name": "fake-plan-2",
