@@ -244,8 +244,9 @@ A web-friendly display name is camel-cased with spaces and punctuation supported
               "type": "object",
               "properties": {
                 "billing-account": {
-                "description": "Billing account number used to charge use of shared fake server.",
-                "type": "String"
+                  "description": "Billing account number used to charge use of shared fake server.",
+                  "type": "String"
+                }
               }
             }
           },
@@ -255,8 +256,9 @@ A web-friendly display name is camel-cased with spaces and punctuation supported
               "type": "object",
               "properties": {
                 "billing-account": {
-                "description": "Billing account number used to charge use of shared fake server.",
-                "type": "String"
+                  "description": "Billing account number used to charge use of shared fake server.",
+                  "type": "String"
+                }
               }
             }
           }
@@ -268,8 +270,9 @@ A web-friendly display name is camel-cased with spaces and punctuation supported
               "type": "object",
               "properties": {
                 "billing-account": {
-                "description": "Billing account number used to charge use of shared fake server.",
-                "type": "String"
+                  "description": "Billing account number used to charge use of shared fake server.",
+                  "type": "String"
+                }
               }
             }
           }
