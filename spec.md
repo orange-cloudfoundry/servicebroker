@@ -145,157 +145,285 @@ A web-friendly display name is camel-cased with spaces and punctuation supported
 
 |  Response field | Type  | Description  |
 |---|---|---|
-| [service-instances](#SIObject) | object | The schema definitions for all actions for a service instance. |
-| [service-bindings](#SBObject) | object | The schema definitions for all actions for a service binding. Used only if the service is bindable. |
+| [service-instances](#SIObject) | object | The schema definitions for all methods for a service instance. |
+| [service-bindings](#SBObject) | object | The schema definitions for all methods for a service binding. Used only if the service is bindable. |
+| [actions](#Service-actions-Object) | object | The schema definitions for the supported service actions |
 
 
 ##### Service-instances Object
 
 |  Response field | Type  | Description  |
 |---|---|---|
-| [create](#IPObject) | object | The schema definitions for the input parameters. |
-| [update](#IPObject) | object | The schema definitions for the input parameters. |
+| [create](#method-schemas-Object) | object | The schema definitions for the input parameters. |
+| [update](#method-schemas-Object) | object | The schema definitions for the input parameters. |
 
 
 ##### Service-bindings Object
 
 |  Response field | Type  | Description  |
 |---|---|---|
-| [create](#IPObject) | object | The schema definitions for the input parameters. |
+| [create](#method-schemas-Object) | object | The schema definitions for the input parameters. |
+
+##### Service-actions Object
+
+|  Response field | Type  | Description  |
+|---|---|---|
+| action-name(#Service-action-Object) | object | The schema definitions for all methods for a single supported action. |
+
+##### Service-action Object
+
+|  Response field | Type  | Description  |
+|---|---|---|
+| [create](#method-schemas-Object) | object | The schema definitions for the input parameters when creating an action. |
 
 
-##### Input parameters Object
+
+##### method schemas Object
 
 |  Response field | Type  | Description  |
 |---|---|---|
 | parameters | JSON schema object | The schema definitions for the input parameters. Schema definitions must be valid [JSON Schema draft v4](http://json-schema.org/). It is recommended for broker authors explicitly mention the JSON schema draft4 version, as this will prevent breaking changes when in the future the OSB spec starts supporting draft v6 JSON schema, with low readability impact. Each input parameter is expressed as property within a json object. Therefore, a service supporting no input parameters should result into a schema only validating an empty object `{}`. |
-
+| resource | JSON schema object | The schema definitions for the response body of a service broker action (e.g. "list-snapshots" action) |
 
 \* Fields with an asterisk are required.
 
 <pre>
 {
-  "services": [{
-    "name": "fake-service",
-    "id": "acb56d7c-XXXX-XXXX-XXXX-feb140a59a66",
-    "description": "fake service",
-    "tags": ["no-sql", "relational"],
-    "requires": ["route_forwarding"],
-    "max_db_per_node": 5,
-    "bindable": true,
-    "metadata": {
-      "provider": {
-        "name": "The name"
-      },
-      "listing": {
-        "imageUrl": "http://example.com/cat.gif",
-        "blurb": "Add a blurb here",
-        "longDescription": "A long time ago, in a galaxy far far away..."
-      },
-      "displayName": "The Fake Broker"
-    },
-    "dashboard_client": {
-      "id": "398e2f8e-XXXX-XXXX-XXXX-19a71ecbcf64",
-      "secret": "277cabb0-XXXX-XXXX-XXXX-7822c0a90e5d",
-      "redirect_uri": "http://localhost:1234"
-    },
-    "plan_updateable": true,
-    "plans": [{
-      "name": "fake-plan-1",
-      "id": "d3031751-XXXX-XXXX-XXXX-a42377d3320e",
-      "description": "Shared fake Server, 5tb persistent disk, 40 max concurrent connections",
-      "max_storage_tb": 5,
+  "services": [
+    {
+      "name": "fake-service",
+      "id": "acb56d7c-XXXX-XXXX-XXXX-feb140a59a66",
+      "description": "fake service",
+      "tags": [
+        "no-sql",
+        "relational"
+      ],
+      "requires": [
+        "route_forwarding"
+      ],
+      "max_db_per_node": 5,
+      "bindable": true,
       "metadata": {
-        "costs":[
-            {
-               "amount":{
-                  "usd":99.0
-               },
-               "unit":"MONTHLY"
-            },
-            {
-               "amount":{
-                  "usd":0.99
-               },
-               "unit":"1GB of messages over 20GB"
-            }
-         ],
-        "bullets": [{
-            "content": "Shared fake server"
-          }, {
-            "content": "5 TB storage"
-          }, {
-            "content": "40 concurrent connections"
-        }]
+        "provider": {
+          "name": "The name"
+        },
+        "listing": {
+          "imageUrl": "http://example.com/cat.gif",
+          "blurb": "Add a blurb here",
+          "longDescription": "A long time ago, in a galaxy far far away..."
+        },
+        "displayName": "The Fake Broker"
       },
-      "schemas": {
-        "service_instances": {
-          "create": {
-            "parameters": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "billing-account": {
-                  "description": "Billing account number used to charge use of shared fake server.",
-                  "type": "String"
+      "dashboard_client": {
+        "id": "398e2f8e-XXXX-XXXX-XXXX-19a71ecbcf64",
+        "secret": "277cabb0-XXXX-XXXX-XXXX-7822c0a90e5d",
+        "redirect_uri": "http://localhost:1234"
+      },
+      "plan_updateable": true,
+      "plans": [
+        {
+          "name": "fake-plan-1",
+          "id": "d3031751-XXXX-XXXX-XXXX-a42377d3320e",
+          "description": "Shared fake Server, 5tb persistent disk, 40 max concurrent connections",
+          "max_storage_tb": 5,
+          "metadata": {
+            "costs": [
+              {
+                "amount": {
+                  "usd": 99.0
+                },
+                "unit": "MONTHLY"
+              },
+              {
+                "amount": {
+                  "usd": 0.99
+                },
+                "unit": "1GB of messages over 20GB"
+              }
+            ],
+            "bullets": [
+              {
+                "content": "Shared fake server"
+              },
+              {
+                "content": "5 TB storage"
+              },
+              {
+                "content": "40 concurrent connections"
+              }
+            ]
+          },
+          "schemas": {
+            "service_instances": {
+              "create": {
+                "parameters": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "type": "object",
+                  "properties": {
+                    "billing-account": {
+                      "description": "Billing account number used to charge use of shared fake server.",
+                      "type": "String"
+                    }
+                  }
+                }
+              },
+              "update": {
+                "parameters": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "type": "object",
+                  "properties": {
+                    "billing-account": {
+                      "description": "Billing account number used to charge use of shared fake server.",
+                      "type": "String"
+                    }
+                  }
                 }
               }
-            }
-          },
-          "update": {
-            "parameters": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "billing-account": {
-                  "description": "Billing account number used to charge use of shared fake server.",
-                  "type": "String"
+            },
+            "service_bindings": {
+              "create": {
+                "parameters": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "type": "object",
+                  "properties": {
+                    "billing-account": {
+                      "description": "Billing account number used to charge use of shared fake server.",
+                      "type": "String"
+                    }
+                  }
+                }
+              }
+            },
+            "actions": {
+              "create-snapshot": {
+                "create": {
+                  "parameters": {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "type": "object",
+                    "title": "snapshot data in time",
+                    "description": "create a snapshot the current service data for later restoration",
+                    "properties": {
+                      "name": {
+                        "description": "Name to give to the snapshot (optional). If specified, must be unique, i.e. will fail if another snapshot with smae name already exists. If ommited, a unique name including current date and time will be generated.",
+                        "type": "String"
+                      },
+                      "encryption-secret": {
+                        "description": "Secret to use to encrypt the snapshot (optional). If specified, will be necessary to restore the snapshot.",
+                        "type": "String"
+                      }
+                    }
+                  }
+                }
+              },
+              "restore-snapshot": {
+                "create": {
+                  "parameters": {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "type": "object",
+                    "title": "restore an existing snapshot",
+                    "description": "restore a previously taken snapshot in time, replacing current data.",
+                    "properties": {
+                      "name": {
+                        "description": "Name of the snapshot to restore (optional). If ommited, the latest available snapshot will be restored.",
+                        "type": "String"
+                      },
+                      "encryption-secret": {
+                        "description": "Secret to use to encrypt the snapshot (optional). If specified, will be necessary to restore the snapshot.",
+                        "type": "String"
+                      }
+                    }
+                  }
+                }
+              },
+              "list-snapshots": {
+                "create": {
+                  "parameters": {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "type": "object",
+                    "title": "list available snapshots",
+                    "description": "Returns the lists of available data snapshots",
+                    "properties": {
+                      "name": {
+                        "description": "Optionally filter the list of returned snapshot to match the specified name.",
+                        "type": "String"
+                      }
+                    }
+                  },
+                  "response": {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "type": "object",
+                    "title": "a list available snapshots order by date",
+                    "properties": {
+                      "name": {
+                        "description": "The name of the snapshot.",
+                        "type": "String"
+                      },
+                      "date": {
+                        "description": "Date at which the snapshot was started.",
+                        "type": "String",
+                        "format": "date-time"
+                      },
+                      "download-url": {
+                        "description": "A URL to download the snapshot for importing into another system. Maybe encrypted.",
+                        "type": "String",
+                        "format": "uri-reference"
+                      }
+                    }
+                  }
+                }
+              },
+              "delete-snapshot": {
+                "create": {
+                  "parameters": {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "type": "object",
+                    "title": "delete a snapshot",
+                    "description": "delete a previously taken data snapshot identified by its name",
+                    "properties": {
+                      "name": {
+                        "description": "Name of the snapshot to delete.",
+                        "type": "String"
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  }
                 }
               }
             }
           }
         },
-        "service_bindings": {
-          "create": {
-            "parameters": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "billing-account": {
-                  "description": "Billing account number used to charge use of shared fake server.",
-                  "type": "String"
-                }
+        {
+          "name": "fake-plan-2",
+          "id": "0f4008b5-XXXX-XXXX-XXXX-dace631cd648",
+          "description": "Shared fake Server, 5tb persistent disk, 40 max concurrent connections. 100 async",
+          "max_storage_tb": 5,
+          "metadata": {
+            "costs": [
+              {
+                "amount": {
+                  "usd": 199.0
+                },
+                "unit": "MONTHLY"
+              },
+              {
+                "amount": {
+                  "usd": 0.99
+                },
+                "unit": "1GB of messages over 20GB"
               }
-            }
+            ],
+            "bullets": [
+              {
+                "content": "40 concurrent connections"
+              }
+            ]
           }
         }
-      }
-    }, {
-      "name": "fake-plan-2",
-      "id": "0f4008b5-XXXX-XXXX-XXXX-dace631cd648",
-      "description": "Shared fake Server, 5tb persistent disk, 40 max concurrent connections. 100 async",
-      "max_storage_tb": 5,
-      "metadata": {
-        "costs":[
-            {
-               "amount":{
-                  "usd":199.0
-               },
-               "unit":"MONTHLY"
-            },
-            {
-               "amount":{
-                  "usd":0.99
-               },
-               "unit":"1GB of messages over 20GB"
-            }
-         ],
-        "bullets": [{
-          "content": "40 concurrent connections"
-        }]
-      }
-    }]
-  }]
+      ]
+    }
+  ]
 }
 </pre>
 
